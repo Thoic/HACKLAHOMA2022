@@ -79,12 +79,13 @@ input:checked + .slider:before {
    padding: 0, 0, 0, 0;
 }
 
-.glightbox_video {
-   position: absolute;
+/* .glightbox_video {
+    position: absolute;
    top: 50%;
    left: 50%;
-   transform: translate(-50%, -50%);
-}
+   transform: translate(-50%, -50%); 
+} 
+*/
 
 .outer_circle {
    stroke-width: 3;
@@ -97,18 +98,43 @@ input:checked + .slider:before {
 .glightbox_video:hover .outer_circle {
    stroke-dashoffset: 410;
    transition: stroke 0.7s 0.4s ease-out, stroke-dashoffset 0.4s ease-out;
+   fill: white;
 }
 
 .glightbox_video:hover .inner-circle {
-   fill: #bf2428;
-   transition: fill 0.4s 0.3s ease-out;
-}
-
-.glightbox_video:hover .play {
    fill: white;
    transition: fill 0.4s 0.3s ease-out;
 }
 
+.glightbox_video:hover .play {
+   fill: #bf2428;
+   transition: fill 0.4s 0.3s ease-out;
+}
+
 body {
-   background-color: lightgray;
+   background-color: whitesmoke;
+}
+
+.submission span {
+   padding-left: 10rem;
+   vertical-align: middle;
+}
+
+.submission {
+   background-color: white;
+   border-radius: 1em;
+   border: 1px solid lightslategray;
+   display: inline-block;
+   padding: 1em;
+}
+
+a {
+   text-decoration: none;
+}
+
+.main {
+   /* width: 100rem; */
+   /* margin: auto auto; */
+   text-align: center;
+   padding-top: 1em;
 }
