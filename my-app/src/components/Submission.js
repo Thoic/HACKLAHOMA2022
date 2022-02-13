@@ -1,47 +1,44 @@
-import React, {Component} from 'react'
-import sixnine from './69.jpg'
+import React from 'react'
+import PlayButton from './PlayButton'
 
-class Submission extends Component {
+class Submission extends React.Component {
+    state = {
+        play: false
+    }
+    audio = new Audio(this.props.path)
     
+    componentDidMount() {
+        this.audio.addEventListener('ended', () => this.setstate({ play: false }));
+    }
+    
+    componentWillUnmount() {
+        this.audio.removeEventListener('ended', () => this.setState({play: false }));
+    }
+    
+    togglePlay(event, i) {
+        event.preventDefault()
+        this.setState({ play: !this.state.play }, () => {
+            this.state.play ? this.audio.play() : this.audio.pause();
+        });
+    }
+
     render() {
-        console.log(this.props.title)
+        const submission = this.props;
+        console.log(this.props)
+        console.log(this.audio)
         return (
             <span className="submission">
-                <img src={sixnine} alt="" width="100rem," height="100rem" />
-                <a href="" className="glightbox_video">
-                    <svg
-                        width="7rem"
-                        height="7rem"
-                        viewBox="0 0 131 131"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                    >
-                        <path
-                            className="inner-circle"
-                            d="M65 21C40.1488 21 20 41.1488 20 66C20 90.8512 40.1488 111 65 111C89.8512 111 110 90.8512 110 66C110 41.1488 89.8512 21 65 21Z"
-                            fill="#bf2428"
-                        ></path>
-                        <circle
-                            className="outer_circle"
-                            cx="65.5"
-                            cy="65.5"
-                            r="64"
-                            stroke="#bf2428"
-                        ></circle>
-                        <path
-                            className="play"
-                            fillRule="evenodd"
-                            clipRule="evenodd"
-                            d="M60 76V57L77 66.7774L60 76Z"
-                            fill="white"
-                        ></path>
-                    </svg> 
-                </a>
+                {submission.image
+                    ? <img src={this.props.image} alt="" width="100rem" height="100rem" />
+                    : <img src={"/placeholder.jpg"} alt="" width="100rem" height="100rem"/>}
+                <PlayButton onClick={(event) => this.togglePlay(event, submission.url)}>
+                    {this.state.play ? 'Pause' : 'Play'}
+                </PlayButton>
                 <span>{this.props.title}</span>
                 <span>{this.props.runtime}</span>
-                <button>{this.props.tag1}</button>
-                <button>{this.props.tag2}</button>
-                <button>{this.props.tag3}</button>
+                { this.props.tag1 && <button>{this.props.tag1}</button> }
+                { this.props.tag2 && <button>{this.props.tag2}</button> }
+                { this.props.tag3 && <button>{this.props.tag3}</button> } 
             </span>
         );
     }
