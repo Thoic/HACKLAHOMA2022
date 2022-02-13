@@ -29,8 +29,6 @@ class Submission extends React.Component {
         const tagList = submission.tags.map((tag) =>
             <button className="tag" key={tag}>{tag}</button>
         )
-        console.log(this.props)
-        console.log(this.audio)
         return (
             <div>
                 <span className="submission">
