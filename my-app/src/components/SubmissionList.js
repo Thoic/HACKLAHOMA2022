@@ -7,8 +7,8 @@ class SubmissionList extends Component {
         super(props);
         this.state = {
             submissions: [
-                {title: 'myron 2', runtime: 134, tag1: 'politics', tag2: null, tag3: null, path: '/myron 2.mp3', image: '/69.jpg'},
-                {title: 'my-audio-two', runtime: 145, tag1: 'music', tag2: null, tag3: null, path: null, image: null},
+                {title: 'myron 2', runtime: 134, tags: ['music', 'hip-hop', 'fleetness'], path: '/myron 2.mp3', image: '/myron2.png'},
+                {title: 'my-audio-two', runtime: 145, tags: ['music'], path: null, image: null},
             ]
         }    
     }
@@ -19,9 +19,7 @@ class SubmissionList extends Component {
             <Submission key={submission.title}
                 title={submission.title} 
                 runtime={submission.runtime} 
-                tag1={submission.tag1} 
-                tag2={submission.tag2} 
-                tag3={submission.tag3}
+                tags={submission.tags} 
                 path={submission.path}
                 image={submission.image}>
             </Submission>

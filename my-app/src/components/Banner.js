@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Filter from './Filter';
 
 class Banner extends Component {
     render() {
@@ -6,8 +7,8 @@ class Banner extends Component {
         return (
             <div className="banner">
                 <a href="">All Audio</a>
-                <a href="">Music</a>
-                <a href="">Politics</a>
+                <Filter value="Music" />
+                <Filter value="Politics"/>
                 <a href="">Random</a>
                 <span className="navright">
                     <label className="switch">

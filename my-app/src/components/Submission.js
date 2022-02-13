@@ -17,13 +17,18 @@ class Submission extends React.Component {
     
     togglePlay(event, i) {
         event.preventDefault()
-        this.setState({ play: !this.state.play }, () => {
-            this.state.play ? this.audio.play() : this.audio.pause();
-        });
+        if (i) {
+            this.setState({ play: !this.state.play }, () => {
+                this.state.play ? this.audio.play() : this.audio.pause();
+            });
+        }
     }
 
     render() {
         const submission = this.props;
+        const tagList = submission.tags.map((tag) =>
+            <button key={tag}>{tag}</button>
+        )
         console.log(this.props)
         console.log(this.audio)
         return (
@@ -31,14 +36,12 @@ class Submission extends React.Component {
                 {submission.image
                     ? <img src={this.props.image} alt="" width="100rem" height="100rem" />
                     : <img src={"/placeholder.jpg"} alt="" width="100rem" height="100rem"/>}
-                <PlayButton onClick={(event) => this.togglePlay(event, submission.url)}>
+                <PlayButton onClick={(event) => this.togglePlay(event, submission.path)}>
                     {this.state.play ? 'Pause' : 'Play'}
                 </PlayButton>
                 <span>{this.props.title}</span>
                 <span>{this.props.runtime}</span>
-                { this.props.tag1 && <button>{this.props.tag1}</button> }
-                { this.props.tag2 && <button>{this.props.tag2}</button> }
-                { this.props.tag3 && <button>{this.props.tag3}</button> } 
+                {tagList}
             </span>
         );
     }
