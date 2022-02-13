@@ -1,17 +1,12 @@
 import React, {Component} from 'react'
-import sixnine from '../69.jpg'
+import sixnine from './69.jpg'
 
 class Submission extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            title: null,
-        };
-    }
     
     render() {
+        console.log(this.props.title)
         return (
-            <span className={this.props.className}>
+            <span className="submission">
                 <img src={sixnine} alt="" width="100rem," height="100rem" />
                 <a href="" className="glightbox_video">
                     <svg
@@ -40,7 +35,7 @@ class Submission extends Component {
                             d="M60 76V57L77 66.7774L60 76Z"
                             fill="white"
                         ></path>
-                    </svg>
+                    </svg> 
                 </a>
                 <span>{this.props.title}</span>
                 <span>{this.props.runtime}</span>
