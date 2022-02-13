@@ -5,8 +5,8 @@ class PlayButton extends Component {
         return (
             <a href="" className="glightbox_video" onClick={this.props.onClick}>
                 <svg
-                    width="7rem"
-                    height="7rem"
+                    width="4rem"
+                    height="4rem"
                     viewBox="0 0 131 131"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
