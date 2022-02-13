@@ -4,7 +4,7 @@ class Filter extends Component {
     render() {
         console.log(this.props)
         return(
-            <a href="" class="navElement">
+            <a href="" className="navElement">
                 {this.props.value}
             </a>
         )

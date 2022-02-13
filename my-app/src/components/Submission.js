@@ -29,8 +29,6 @@ class Submission extends React.Component {
         const tagList = submission.tags.map((tag) =>
             <button className="tag" key={tag}>{tag}</button>
         )
-        console.log(this.props)
-        console.log(this.audio)
         return (
             <div>
                 <span className="submission">
@@ -40,11 +38,11 @@ class Submission extends React.Component {
                     <PlayButton onClick={(event) => this.togglePlay(event, submission.path)}>
                         {this.state.play ? 'Pause' : 'Play'}
                     </PlayButton>
-                    <span class="titleProgress">
-                        <span class="title">{this.props.title}</span>
-                        <span class="barTime">
-                            <progress class="bar" value="25" max="100"/>
-                            <span class="time">{this.props.runtime}</span>
+                    <span className="titleProgress">
+                        <span className="title">{this.props.title}</span>
+                        <span className="barTime">
+                            <progress className="bar" value="25" max="100"/>
+                            <span className="time">{this.props.runtime}</span>
                         </span>
                     </span>
                     <span className="tags">{tagList}</span>
