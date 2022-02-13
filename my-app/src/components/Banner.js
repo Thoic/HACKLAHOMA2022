@@ -1,8 +1,15 @@
 import React, { Component } from "react";
+import Container from "./Container";
 import Filter from "./Filter";
 
 class Banner extends Component {
    render() {
+      const triggerText = 'Open form';
+      const onSubmit = (event) => {
+        event.preventDefault(event);
+        console.log(event.target.name.value);
+        console.log(event.target.email.value);
+      };
       return (
          <div className="banner">
             <Filter value="Home" className="navElement" />
@@ -19,9 +26,7 @@ class Banner extends Component {
                      <i className="fa fa-search"></i>
                   </button>
                </form>
-               <a href="" className="uploadbtn">
-                  Upload
-               </a>
+               <Container triggerText={triggerText} onSubmit={onSubmit} />
             </span>
          </div>
       );
