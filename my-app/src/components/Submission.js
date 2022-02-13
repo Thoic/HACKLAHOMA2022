@@ -27,22 +27,29 @@ class Submission extends React.Component {
     render() {
         const submission = this.props;
         const tagList = submission.tags.map((tag) =>
-            <button key={tag}>{tag}</button>
+            <button className="tag" key={tag}>{tag}</button>
         )
         console.log(this.props)
         console.log(this.audio)
         return (
-            <span className="submission">
-                {submission.image
-                    ? <img src={this.props.image} alt="" width="100rem" height="100rem" />
-                    : <img src={"/placeholder.jpg"} alt="" width="100rem" height="100rem"/>}
-                <PlayButton onClick={(event) => this.togglePlay(event, submission.path)}>
-                    {this.state.play ? 'Pause' : 'Play'}
-                </PlayButton>
-                <span>{this.props.title}</span>
-                <span>{this.props.runtime}</span>
-                {tagList}
-            </span>
+            <div>
+                <span className="submission">
+                    {submission.image
+                        ? <img src={this.props.image} alt="" width="100rem" height="100rem" />
+                        : <img src={"/placeholder.jpg"} alt="" width="100rem" height="100rem"/>}
+                    <PlayButton onClick={(event) => this.togglePlay(event, submission.path)}>
+                        {this.state.play ? 'Pause' : 'Play'}
+                    </PlayButton>
+                    <span class="titleProgress">
+                        <span class="title">{this.props.title}</span>
+                        <span class="barTime">
+                            <progress class="bar" value="25" max="100"/>
+                            <span class="time">{this.props.runtime}</span>
+                        </span>
+                    </span>
+                    <span className="tags">{tagList}</span>
+                </span>
+            </div>
         );
     }
 }

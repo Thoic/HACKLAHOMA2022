@@ -6,17 +6,14 @@ class Banner extends Component {
         
         return (
             <div className="banner">
-                <a href="">All Audio</a>
-                <Filter value="Music" />
-                <Filter value="Politics"/>
-                <a href="">Random</a>
-                <span className="navright">
-                    <label className="switch">
-                        <input type="checkbox" />
-                        <span className="slider round"></span>
-                    </label>
-                    <span>Autoplay</span>
-                    <button>Upload</button>
+                <Filter value="Home" class="navElement"/>
+                <Filter value="Music" class="navElement"/>
+                <Filter value="Politics" class="navElement"/>
+                <Filter value="Nature" class="navElement"/>
+                <Filter value="City" class="navElement"/>
+                <Filter value="Random" class="navElement"/>
+                <span class="upload">
+                <a href="" class="uploadbtn">Upload</a>
                 </span>
             </div>
         );
